@@ -1,15 +1,19 @@
 package main
+
 import (
- "fmt"
- "os"
+    "fmt"
+    "net/http"
+    "os"
 )
+
 func main() {
- hostname, error := os.Hostname()
- if error != nil {
-  panic(error)
- }  
- fmt.Println("hostname returned from Environment : ", hostname)
- fmt.Println("error : ", error)
+    name, err := os.Hostname()
+    if err != nil {
+	panic(err)
+    }
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Hello, from pod: %s\n", name)
+    })
 
+    http.ListenAndServe(":8080", nil)
 }
-
