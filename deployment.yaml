@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: golang
-        image: nurlan1992/golang-app:v1.0
+        image: nurlan1992/app:v1
         imagePullPolicy: Always
         resources:
           requests:
@@ -40,4 +40,4 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 32445
+      nodePort: 32333
