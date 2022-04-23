@@ -2,19 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: golang
-  labels:
-    tier: backend
+  namespace: diploma
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: golang
-      tier: backend
   template:
     metadata:
       labels:
         app: golang
-        tier: backend
     spec:
       containers:
       - name: golang
