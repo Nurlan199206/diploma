@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nodejs-app
-  namespace: a-plus
+  name: diploma
+  namespace: default
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
